@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en" class="h-full">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Advanced Admin Dashboard</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+    }
+  </script>
+</head>
+<body class="h-full bg-gray-100 dark:bg-gray-900 text-gray-900 dark:text-gray-100 transition-colors duration-300">
+
+  <!-- Dashboard Container -->
+  <div class="grid grid-cols-[250px_1fr] grid-rows-[60px_1fr] min-h-screen transition-all duration-300" 
+       style="grid-template-areas:
+        'sidebar header'
+        'sidebar main';">
+
+    <!-- Sidebar -->
+    <aside id="sidebar" class="bg-gray-200 dark:bg-gray-800 p-4 transition-all duration-300"
+           style="grid-area: sidebar;">
+      <h2 class="text-lg font-bold mb-6 flex justify-between items-center">
+        Menu
+        <button id="sidebarToggle" class="text-gray-600 dark:text-gray-300">
+          ☰
+        </button>
+      </h2>
+      <nav id="navLinks" class="space-y-4">
+        <a href="#" class="block hover:text-blue-500 active-link">Overview</a>
+        <a href="#" class="block hover:text-blue-500">Users</a>
+        <a href="#" class="block hover:text-blue-500">Reports</a>
+        <a href="#" class="block hover:text-blue-500">Settings</a>
+      </nav>
+    </aside>
+
+    <!-- Header -->
+    <header class="flex justify-between items-center px-6 shadow bg-white dark:bg-gray-700" style="grid-area: header;">
+      <div class="flex items-center space-x-4 w-full">
+        <input type="text" placeholder="Search..." 
+               class="flex-1 px-3 py-2 rounded-md border border-gray-300 dark:border-gray-600 
+                      bg-gray-50 dark:bg-gray-600 text-gray-800 dark:text-gray-100">
+      </div>
+      <button id="themeToggle" 
+              class="ml-4 px-4 py-2 rounded-md bg-blue-500 text-white dark:bg-yellow-500">
+        Toggle Theme
+      </button>
+    </header>
+
+    <!-- Main Content -->
+    <main class="p-6 grid gap-6" style="grid-area: main;">
+      <!-- Data Visualization Placeholders -->
+      <div class="grid md:grid-cols-2 gap-6">
+        <div class="p-6 rounded-lg shadow bg-white dark:bg-gray-700 h-48 flex items-center justify-center">
+          <span class="text-gray-500 dark:text-gray-300">Chart Placeholder 1</span>
+        </div>
+        <div class="p-6 rounded-lg shadow bg-white dark:bg-gray-700 h-48 flex items-center justify-center">
+          <span class="text-gray-500 dark:text-gray-300">Chart Placeholder 2</span>
+        </div>
+      </div>
+
+      <!-- Dynamic Data Table -->
+      <div class="p-6 rounded-lg shadow bg-white dark:bg-gray-700">
+        <h3 class="text-lg font-semibold mb-4">Users (Mock API)</h3>
+        <table class="w-full border-collapse">
+          <thead>
+            <tr class="bg-gray-100 dark:bg-gray-600">
+              <th class="px-4 py-2 border dark:border-gray-500">ID</th>
+              <th class="px-4 py-2 border dark:border-gray-500">Name</th>
+              <th class="px-4 py-2 border dark:border-gray-500">Email</th>
+            </tr>
+          </thead>
+          <tbody id="userTable" class="text-sm"></tbody>
+        </table>
+      </div>
+    </main>
+  </div>
+
+  <script src="theme.js"></script>
+</body>
+</html>
